@@ -20,4 +20,7 @@
 %include "std_vector.i"
 %template(UsdSkelInbetweenShapeVector) std::vector<UsdSkelInbetweenShape>;
 
+%include "typemaps.i"
+%apply float *OUTPUT { float *weight };
+
 %include "pxr/usd/usdSkel/inbetweenShape.h"

@@ -296,9 +296,94 @@ namespace Unity.Formats.USD
             }
 
             BuildMesh_(path, usdMesh, smr.sharedMesh, geomSubsets, go, smr, options);
+            if (options.importBlendShapes && skinningQuery != null && skinningQuery.HasBlendShapes())
+            {
+                UsdSkelBlendShapeQuery blendShapeQuery = new UsdSkelBlendShapeQuery(new UsdSkelBindingAPI(skinningQuery.GetPrim()));
+                ImportBlendShapes(path, usdMesh, smr.sharedMesh, blendShapeQuery,
+                                  options.changeHandedness == BasisTransformation.SlowAndSafe ||
+                                  options.changeHandedness == BasisTransformation.SlowAndSafeAsFBX);
+            }
             if (options.importSkinWeights)
             {
                 ImportSkinning(path, usdMesh, smr.sharedMesh, skinningQuery);
+            }
+        }
+
+        /// <summary>
+        /// Import blend shapes from USD.
+        /// </summary>
+        /// <remarks>
+        /// Same remarks as in ImportSkinning.
+        /// </remarks>
+        public static void ImportBlendShapes(string path, SanitizedMeshSample usdMesh, Mesh unityMesh, UsdSkelBlendShapeQuery blendShapeQuery, bool changeHandedness)
+        {
+            VtVec3fArrayVector pointOffsets = blendShapeQuery.ComputeSubShapePointOffsets();
+            VtVec3fArrayVector normalOffsets = blendShapeQuery.ComputeSubShapeNormalOffsets();
+
+            for (uint i = 0; i < blendShapeQuery.GetNumSubShapes(); i++) 
+            {
+                UsdSkelBlendShape blendShape = blendShapeQuery.GetBlendShape(blendShapeQuery.GetBlendShapeIndex(i));
+                UsdSkelInbetweenShape inbetweenShape = blendShapeQuery.GetInbetween(i);
+
+                var deltaVertices = UnityTypeConverter.FromVtArray(pointOffsets[(int)i]);
+                var deltaNormals = UnityTypeConverter.FromVtArray(normalOffsets[(int)i]);
+
+                if (changeHandedness)
+                {
+                    for (var j = 0; j < deltaVertices.Length; j++)
+                        deltaVertices[j] = UnityTypeConverter.ChangeBasis(deltaVertices[j]);
+                    for (var j = 0; j < deltaNormals.Length; j++)
+                        deltaNormals[j] = UnityTypeConverter.ChangeBasis(deltaNormals[j]);
+                }
+
+                // UsdSkelBlendShapeQuery classifies sub-shapes as primary or inbetween or null according to their weights
+                // and it's possible to query which ones are inbetweens but unfortunately not possible to query which ones are nulls
+                // and can be skipped.
+                float frameWeight = 1.0F;
+                if (inbetweenShape.IsDefined())
+                    inbetweenShape.GetWeight(out frameWeight);
+
+                // This tests if the current sub-shape is a null sub-shape which can be skipped.
+                if (deltaVertices.Length == 0)
+                    continue;
+
+                // Test if the original USD mesh is now a soup of disconnected triangles.
+                if (usdMesh.arePrimvarsFaceVarying) 
+                {
+                    var triangulatedDeltaVertices = new Vector3[unityMesh.vertexCount];
+                    var triangulatedDeltaNormals = deltaNormals.Length != 0 ? new Vector3[unityMesh.vertexCount] : null;
+
+                    bool validSubShape = true; 
+                    for (var vertexIndex = 0; validSubShape == true && vertexIndex < unityMesh.vertexCount; vertexIndex++)
+                    {
+                        int triangulatedFaceVertexIndex = usdMesh.triangulatedFaceVertexIndices[vertexIndex];
+                        if (triangulatedFaceVertexIndex >= deltaVertices.Length )
+                            validSubShape = false; // Deltas are invalid and current sub shape will be skipped
+                        else 
+                        {
+                            triangulatedDeltaVertices[vertexIndex] = deltaVertices[triangulatedFaceVertexIndex];
+                            if (triangulatedDeltaNormals != null)
+                            {
+                                if (triangulatedFaceVertexIndex >= deltaNormals.Length)
+                                   triangulatedDeltaNormals = null; // Normals are invalid and will just not be used
+                                else
+                                   triangulatedDeltaNormals[vertexIndex] = deltaNormals[triangulatedFaceVertexIndex];
+                            }
+                        }
+                    }
+
+                    if (validSubShape == true)
+                        unityMesh.AddBlendShapeFrame(blendShape.GetPrim().GetName(), frameWeight, triangulatedDeltaVertices, triangulatedDeltaNormals, null);
+                    else
+                        Debug.LogWarning("Skipping invalid blend shape " + blendShape.GetPrim().GetPath());
+                } 
+                else 
+                {
+                    if (deltaVertices.Length == unityMesh.vertexCount)
+                        unityMesh.AddBlendShapeFrame(blendShape.GetPrim().GetName(), frameWeight, deltaVertices, deltaNormals.Length == unityMesh.vertexCount ? deltaNormals : null, null);
+                    else
+                        Debug.LogWarning("Skipping invalid blend shape " + blendShape.GetPrim().GetPath());
+                }
             }
         }
 
@@ -418,6 +503,13 @@ namespace Unity.Formats.USD
             }
 
             BuildMesh_(path, usdMesh, mf.sharedMesh, geomSubsets, go, mr, options);
+            if (options.importBlendShapes && skinQuery != null && skinQuery.HasBlendShapes())
+            {
+                UsdSkelBlendShapeQuery blendShapeQuery = new UsdSkelBlendShapeQuery(new UsdSkelBindingAPI(skinQuery.GetPrim()));
+                ImportBlendShapes(path, usdMesh, mf.sharedMesh, blendShapeQuery,
+                                  options.changeHandedness == BasisTransformation.SlowAndSafe ||
+                                  options.changeHandedness == BasisTransformation.SlowAndSafeAsFBX);
+            }
         }
 
         static void BuildMesh_(string path,

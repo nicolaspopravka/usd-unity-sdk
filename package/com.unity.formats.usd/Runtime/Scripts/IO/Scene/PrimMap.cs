@@ -47,6 +47,7 @@ namespace Unity.Formats.USD
         public SdfPath[] SkelRoots { get; set; }
         public SdfPath[] Skeletons { get; set; }
         public SdfPath[] Materials { get; set; }
+        public SdfPath[] BlendShapes { get; set; }
 
         // Flags for import analytics
         public bool ContainsPointInstances { get; set; }
@@ -174,6 +175,7 @@ namespace Unity.Formats.USD
             SkelRoots = null;
             Skeletons = null;
             Materials = null;
+            BlendShapes = null;
 
             ContainsPointInstances = false;
             HasErrors = false;

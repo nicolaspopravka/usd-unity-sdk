@@ -20,6 +20,7 @@
 %include "usdSkelAnimMapper.i"
 %include "usdSkelAnimQuery.i"
 %include "usdSkelBlendShape.i"
+%include "usdSkelBlendShapeQuery.i"
 %include "usdSkelCache.i"
 %include "usdSkelInbetweenShape.i"
 %include "usdSkelPackedJointAnimation.i"

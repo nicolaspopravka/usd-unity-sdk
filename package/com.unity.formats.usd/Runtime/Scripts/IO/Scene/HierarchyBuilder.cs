@@ -133,8 +133,8 @@ namespace Unity.Formats.USD
         {
             FindPathsJob.usdRoot = usdRoot;
             FindPathsJob.scene = scene;
-            FindPathsJob.results = new SdfPath[9][];
-            FindPathsJob.queries = new FindPathsJob.IQuery[9];
+            FindPathsJob.results = new SdfPath[10][];
+            FindPathsJob.queries = new FindPathsJob.IQuery[10];
 
             if (options.ShouldBindMaterials)
             {
@@ -165,7 +165,12 @@ namespace Unity.Formats.USD
                 FindPathsJob.queries[7] = (FindPathsJob.IQuery)new FindPathsJob.Query<XformSample>();
             }
 
-            FindPathsJob.queries[8] = (FindPathsJob.IQuery)new FindPathsJob.Query<ScopeSample>();
+            if (options.importBlendShapes)
+            {
+                FindPathsJob.queries[8] = (FindPathsJob.IQuery)new FindPathsJob.Query<BlendShapeSample>();
+            }
+
+            FindPathsJob.queries[9] = (FindPathsJob.IQuery)new FindPathsJob.Query<ScopeSample>();
 
             var findPathsJob = new FindPathsJob();
             var findHandle = findPathsJob.Schedule(FindPathsJob.queries.Length, 1);
@@ -185,13 +190,14 @@ namespace Unity.Formats.USD
             map.SkelRoots = FindPathsJob.results[5];
             map.Skeletons = FindPathsJob.results[6];
             map.Xforms = FindPathsJob.results[7];
+            map.BlendShapes = FindPathsJob.results[8];
 
             ReadHierJob.paths = FindPathsJob.results.Where(i => i != null).SelectMany(i => i).ToArray();
             ReadHierJob.result = new HierInfo[ReadHierJob.paths.Length];
             ReadHierJob.scene = scene;
             ReadHierJob.skelCache = map.SkelCache;
             var readHierInfo = new ReadHierJob();
-            return readHierInfo.Schedule(ReadHierJob.paths.Length, 8, dependsOn: findHandle);
+            return readHierInfo.Schedule(ReadHierJob.paths.Length, 9, dependsOn: findHandle);
         }
 
         static HierInfo[] BuildObjectLists(Scene scene,
