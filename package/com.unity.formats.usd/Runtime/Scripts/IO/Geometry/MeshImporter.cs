@@ -319,22 +319,15 @@ namespace Unity.Formats.USD
         {
             VtVec3fArrayVector pointOffsets = blendShapeQuery.ComputeSubShapePointOffsets();
             VtVec3fArrayVector normalOffsets = blendShapeQuery.ComputeSubShapeNormalOffsets();
+            VtIntArrayVector pointIndices = blendShapeQuery.ComputeBlendShapePointIndices();
 
-            for (uint i = 0; i < blendShapeQuery.GetNumSubShapes(); i++) 
+            for (uint subShapeIndex = 0; subShapeIndex < blendShapeQuery.GetNumSubShapes(); subShapeIndex++) 
             {
-                UsdSkelBlendShape blendShape = blendShapeQuery.GetBlendShape(blendShapeQuery.GetBlendShapeIndex(i));
-                UsdSkelInbetweenShape inbetweenShape = blendShapeQuery.GetInbetween(i);
+                uint blendShapeIndex = blendShapeQuery.GetBlendShapeIndex(subShapeIndex);
+                bool blendShapeIndexed = pointIndices[(int)blendShapeIndex].size() != 0 ? true : false;
 
-                var deltaVertices = UnityTypeConverter.FromVtArray(pointOffsets[(int)i]);
-                var deltaNormals = UnityTypeConverter.FromVtArray(normalOffsets[(int)i]);
-
-                if (changeHandedness)
-                {
-                    for (var j = 0; j < deltaVertices.Length; j++)
-                        deltaVertices[j] = UnityTypeConverter.ChangeBasis(deltaVertices[j]);
-                    for (var j = 0; j < deltaNormals.Length; j++)
-                        deltaNormals[j] = UnityTypeConverter.ChangeBasis(deltaNormals[j]);
-                }
+                UsdSkelBlendShape blendShape = blendShapeQuery.GetBlendShape(blendShapeIndex);
+                UsdSkelInbetweenShape inbetweenShape = blendShapeQuery.GetInbetween(subShapeIndex);
 
                 // UsdSkelBlendShapeQuery classifies sub-shapes as primary or inbetween or null according to their weights
                 // and it's possible to query which ones are inbetweens but unfortunately not possible to query which ones are nulls
@@ -344,8 +337,30 @@ namespace Unity.Formats.USD
                     inbetweenShape.GetWeight(out frameWeight);
 
                 // This tests if the current sub-shape is a null sub-shape which can be skipped.
-                if (deltaVertices.Length == 0)
+                if (pointOffsets[(int)subShapeIndex].size() == 0)
                     continue;
+
+                var deltaVertices = UnityTypeConverter.FromVtArray(pointOffsets[(int)subShapeIndex]);
+                var sparseDeltaVertices = blendShapeIndexed ? new Vector3[unityMesh.vertexCount] : null;
+
+                var deltaNormals = UnityTypeConverter.FromVtArray(normalOffsets[(int)subShapeIndex]);
+                var sparseDeltaNormals = blendShapeIndexed && deltaNormals.Length != 0 ? new Vector3[unityMesh.vertexCount] : null;
+
+                if (changeHandedness)
+                {
+                    for (int i = 0; i < deltaVertices.Length; i++)
+                        deltaVertices[i] = UnityTypeConverter.ChangeBasis(deltaVertices[i]);
+                    for (int i = 0; i < deltaNormals.Length; i++)
+                        deltaNormals[i] = UnityTypeConverter.ChangeBasis(deltaNormals[i]);
+                }
+
+                if (blendShapeIndexed)
+                {
+                    for (int i = 0; i < deltaVertices.Length; i++)
+                        sparseDeltaVertices[pointIndices[(int)blendShapeIndex][i]] = deltaVertices[i];
+                    for (int i = 0; i < deltaNormals.Length; i++)
+                        sparseDeltaNormals[pointIndices[(int)blendShapeIndex][i]] = deltaNormals[i];
+                }
 
                 // Test if the original USD mesh is now a soup of disconnected triangles.
                 if (usdMesh.arePrimvarsFaceVarying) 
@@ -353,36 +368,29 @@ namespace Unity.Formats.USD
                     var triangulatedDeltaVertices = new Vector3[unityMesh.vertexCount];
                     var triangulatedDeltaNormals = deltaNormals.Length != 0 ? new Vector3[unityMesh.vertexCount] : null;
 
-                    bool validSubShape = true; 
-                    for (var vertexIndex = 0; validSubShape == true && vertexIndex < unityMesh.vertexCount; vertexIndex++)
+                    for (int vertexIndex = 0; vertexIndex < unityMesh.vertexCount; vertexIndex++)
                     {
                         int triangulatedFaceVertexIndex = usdMesh.triangulatedFaceVertexIndices[vertexIndex];
-                        if (triangulatedFaceVertexIndex >= deltaVertices.Length )
-                            validSubShape = false; // Deltas are invalid and current sub shape will be skipped
-                        else 
-                        {
+
+                        if (blendShapeIndexed)
+                            triangulatedDeltaVertices[vertexIndex] = sparseDeltaVertices[triangulatedFaceVertexIndex];
+                        else
                             triangulatedDeltaVertices[vertexIndex] = deltaVertices[triangulatedFaceVertexIndex];
-                            if (triangulatedDeltaNormals != null)
-                            {
-                                if (triangulatedFaceVertexIndex >= deltaNormals.Length)
-                                   triangulatedDeltaNormals = null; // Normals are invalid and will just not be used
-                                else
-                                   triangulatedDeltaNormals[vertexIndex] = deltaNormals[triangulatedFaceVertexIndex];
-                            }
-                        }
+                        if (triangulatedDeltaNormals != null)
+                            if (blendShapeIndexed)
+                                triangulatedDeltaNormals[vertexIndex] = sparseDeltaNormals[triangulatedFaceVertexIndex];
+                            else
+                                triangulatedDeltaNormals[vertexIndex] = deltaNormals[triangulatedFaceVertexIndex];
                     }
 
-                    if (validSubShape == true)
-                        unityMesh.AddBlendShapeFrame(blendShape.GetPrim().GetName(), frameWeight, triangulatedDeltaVertices, triangulatedDeltaNormals, null);
-                    else
-                        Debug.LogWarning("Skipping invalid blend shape " + blendShape.GetPrim().GetPath());
+                    unityMesh.AddBlendShapeFrame(blendShape.GetPrim().GetName(), frameWeight, triangulatedDeltaVertices, triangulatedDeltaNormals, null);
                 } 
                 else 
                 {
-                    if (deltaVertices.Length == unityMesh.vertexCount)
-                        unityMesh.AddBlendShapeFrame(blendShape.GetPrim().GetName(), frameWeight, deltaVertices, deltaNormals.Length == unityMesh.vertexCount ? deltaNormals : null, null);
-                    else
-                        Debug.LogWarning("Skipping invalid blend shape " + blendShape.GetPrim().GetPath());
+                    if (blendShapeIndexed)
+                        unityMesh.AddBlendShapeFrame(blendShape.GetPrim().GetName(), frameWeight, sparseDeltaVertices, sparseDeltaNormals, null);
+                    else 
+                        unityMesh.AddBlendShapeFrame(blendShape.GetPrim().GetName(), frameWeight, deltaVertices, deltaNormals.Length != 0 ? deltaNormals : null, null);
                 }
             }
         }
