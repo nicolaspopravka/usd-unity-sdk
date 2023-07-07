@@ -783,6 +783,7 @@ namespace Unity.Formats.USD
 
             options.meshOptions.generateLightmapUVs = false;
             options.importSkinWeights = false;
+            options.importBlendShapes = false;
 
             // Note that tangent and Normals must be updated when the mesh deforms.
             options.importHierarchy = false;
