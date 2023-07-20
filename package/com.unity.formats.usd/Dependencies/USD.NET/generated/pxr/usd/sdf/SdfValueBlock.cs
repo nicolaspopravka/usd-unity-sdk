@@ -8,47 +8,41 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class SdfValueBlock : global::System.IDisposable
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        protected bool swigCMemOwn;
+namespace pxr {
 
-        internal SdfValueBlock(global::System.IntPtr cPtr, bool cMemoryOwn)
-        {
-            swigCMemOwn = cMemoryOwn;
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class SdfValueBlock : global::System.IDisposable {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SdfValueBlock obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal SdfValueBlock(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~SdfValueBlock()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SdfValueBlock obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public virtual void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_SdfValueBlock(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-            }
-        }
+  ~SdfValueBlock() {
+    Dispose();
+  }
 
-        public SdfValueBlock() : this(UsdCsPINVOKE.new_SdfValueBlock(), true)
-        {
+  public virtual void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_SdfValueBlock(swigCPtr);
         }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
     }
+  }
+
+  public SdfValueBlock() : this(UsdCsPINVOKE.new_SdfValueBlock(), true) {
+  }
+
+}
+
 }

@@ -8,108 +8,92 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class UsdRiRslShader : UsdShadeShader
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+namespace pxr {
 
-        internal UsdRiRslShader(global::System.IntPtr cPtr, bool cMemoryOwn) : base(UsdCsPINVOKE.UsdRiRslShader_SWIGUpcast(cPtr), cMemoryOwn)
-        {
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class UsdRiRslShader : UsdShadeShader {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdRiRslShader obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal UsdRiRslShader(global::System.IntPtr cPtr, bool cMemoryOwn) : base(UsdCsPINVOKE.UsdRiRslShader_SWIGUpcast(cPtr), cMemoryOwn) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~UsdRiRslShader()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdRiRslShader obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public override void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_UsdRiRslShader(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-                base.Dispose();
-            }
-        }
+  ~UsdRiRslShader() {
+    Dispose();
+  }
 
-        public UsdRiRslShader(UsdPrim prim) : this(UsdCsPINVOKE.new_UsdRiRslShader__SWIG_0(UsdPrim.getCPtr(prim)), true)
-        {
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  public override void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_UsdRiRslShader(swigCPtr);
         }
-
-        public UsdRiRslShader() : this(UsdCsPINVOKE.new_UsdRiRslShader__SWIG_1(), true)
-        {
-        }
-
-        public UsdRiRslShader(UsdSchemaBase schemaObj) : this(UsdCsPINVOKE.new_UsdRiRslShader__SWIG_2(UsdSchemaBase.getCPtr(schemaObj)), true)
-        {
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        public new static TfTokenVector GetSchemaAttributeNames(bool includeInherited)
-        {
-            TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdRiRslShader_GetSchemaAttributeNames__SWIG_0(includeInherited), false);
-            return ret;
-        }
-
-        public new static TfTokenVector GetSchemaAttributeNames()
-        {
-            TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdRiRslShader_GetSchemaAttributeNames__SWIG_1(), false);
-            return ret;
-        }
-
-        public new static UsdRiRslShader Get(UsdStageWeakPtr stage, SdfPath path)
-        {
-            UsdRiRslShader ret = new UsdRiRslShader(UsdCsPINVOKE.UsdRiRslShader_Get(UsdStageWeakPtr.getCPtr(stage), SdfPath.getCPtr(path)), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public new static UsdRiRslShader Define(UsdStageWeakPtr stage, SdfPath path)
-        {
-            UsdRiRslShader ret = new UsdRiRslShader(UsdCsPINVOKE.UsdRiRslShader_Define(UsdStageWeakPtr.getCPtr(stage), SdfPath.getCPtr(path)), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public UsdAttribute GetSloPathAttr()
-        {
-            UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdRiRslShader_GetSloPathAttr(swigCPtr), true);
-            return ret;
-        }
-
-        public UsdAttribute CreateSloPathAttr(VtValue defaultValue, bool writeSparsely)
-        {
-            UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdRiRslShader_CreateSloPathAttr__SWIG_0(swigCPtr, VtValue.getCPtr(defaultValue), writeSparsely), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public UsdAttribute CreateSloPathAttr(VtValue defaultValue)
-        {
-            UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdRiRslShader_CreateSloPathAttr__SWIG_1(swigCPtr, VtValue.getCPtr(defaultValue)), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public UsdAttribute CreateSloPathAttr()
-        {
-            UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdRiRslShader_CreateSloPathAttr__SWIG_2(swigCPtr), true);
-            return ret;
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
+      base.Dispose();
     }
+  }
+
+  public UsdRiRslShader(UsdPrim prim) : this(UsdCsPINVOKE.new_UsdRiRslShader__SWIG_0(UsdPrim.getCPtr(prim)), true) {
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public UsdRiRslShader() : this(UsdCsPINVOKE.new_UsdRiRslShader__SWIG_1(), true) {
+  }
+
+  public UsdRiRslShader(UsdSchemaBase schemaObj) : this(UsdCsPINVOKE.new_UsdRiRslShader__SWIG_2(UsdSchemaBase.getCPtr(schemaObj)), true) {
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public new static TfTokenVector GetSchemaAttributeNames(bool includeInherited) {
+    TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdRiRslShader_GetSchemaAttributeNames__SWIG_0(includeInherited), false);
+    return ret;
+  }
+
+  public new static TfTokenVector GetSchemaAttributeNames() {
+    TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdRiRslShader_GetSchemaAttributeNames__SWIG_1(), false);
+    return ret;
+  }
+
+  public new static UsdRiRslShader Get(UsdStageWeakPtr stage, SdfPath path) {
+    UsdRiRslShader ret = new UsdRiRslShader(UsdCsPINVOKE.UsdRiRslShader_Get(UsdStageWeakPtr.getCPtr(stage), SdfPath.getCPtr(path)), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public new static UsdRiRslShader Define(UsdStageWeakPtr stage, SdfPath path) {
+    UsdRiRslShader ret = new UsdRiRslShader(UsdCsPINVOKE.UsdRiRslShader_Define(UsdStageWeakPtr.getCPtr(stage), SdfPath.getCPtr(path)), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public UsdAttribute GetSloPathAttr() {
+    UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdRiRslShader_GetSloPathAttr(swigCPtr), true);
+    return ret;
+  }
+
+  public UsdAttribute CreateSloPathAttr(VtValue defaultValue, bool writeSparsely) {
+    UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdRiRslShader_CreateSloPathAttr__SWIG_0(swigCPtr, VtValue.getCPtr(defaultValue), writeSparsely), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public UsdAttribute CreateSloPathAttr(VtValue defaultValue) {
+    UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdRiRslShader_CreateSloPathAttr__SWIG_1(swigCPtr, VtValue.getCPtr(defaultValue)), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public UsdAttribute CreateSloPathAttr() {
+    UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdRiRslShader_CreateSloPathAttr__SWIG_2(swigCPtr), true);
+    return ret;
+  }
+
+}
+
 }

@@ -22,7 +22,7 @@ if __name__ == "__main__":
     new_env["PYTHONPATH"] = os.pathsep.join([usd_python_path, new_env.get("PYTHONPATH", "")])
 
     # Spawn a python process with the new environment
-    cmd = ["python3", "src/Swig/scripts/gen.py", out_path]
+    cmd = ["python", "src/Swig/scripts/gen.py", out_path]
     p = subprocess.Popen(cmd, env=new_env, cwd=os.path.join(os.getcwd(), '..'))
     p.wait()
     if p.returncode != 0:

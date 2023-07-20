@@ -8,25 +8,22 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class SWIGTYPE_p_SdfVariantSelectionProxy
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+namespace pxr {
 
-        internal SWIGTYPE_p_SdfVariantSelectionProxy(global::System.IntPtr cPtr, bool futureUse)
-        {
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class SWIGTYPE_p_SdfVariantSelectionProxy {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-        protected SWIGTYPE_p_SdfVariantSelectionProxy()
-        {
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-        }
+  internal SWIGTYPE_p_SdfVariantSelectionProxy(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_SdfVariantSelectionProxy obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
-    }
+  protected SWIGTYPE_p_SdfVariantSelectionProxy() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_SdfVariantSelectionProxy obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+}
+
 }

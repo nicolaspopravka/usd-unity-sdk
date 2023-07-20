@@ -8,82 +8,70 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class UsdGeomXform : UsdGeomXformable
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+namespace pxr {
 
-        internal UsdGeomXform(global::System.IntPtr cPtr, bool cMemoryOwn) : base(UsdCsPINVOKE.UsdGeomXform_SWIGUpcast(cPtr), cMemoryOwn)
-        {
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class UsdGeomXform : UsdGeomXformable {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdGeomXform obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal UsdGeomXform(global::System.IntPtr cPtr, bool cMemoryOwn) : base(UsdCsPINVOKE.UsdGeomXform_SWIGUpcast(cPtr), cMemoryOwn) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~UsdGeomXform()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdGeomXform obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public override void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_UsdGeomXform(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-                base.Dispose();
-            }
-        }
+  ~UsdGeomXform() {
+    Dispose();
+  }
 
-        public UsdGeomXform(UsdPrim prim) : this(UsdCsPINVOKE.new_UsdGeomXform__SWIG_0(UsdPrim.getCPtr(prim)), true)
-        {
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  public override void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_UsdGeomXform(swigCPtr);
         }
-
-        public UsdGeomXform() : this(UsdCsPINVOKE.new_UsdGeomXform__SWIG_1(), true)
-        {
-        }
-
-        public UsdGeomXform(UsdSchemaBase schemaObj) : this(UsdCsPINVOKE.new_UsdGeomXform__SWIG_2(UsdSchemaBase.getCPtr(schemaObj)), true)
-        {
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        public new static TfTokenVector GetSchemaAttributeNames(bool includeInherited)
-        {
-            TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdGeomXform_GetSchemaAttributeNames__SWIG_0(includeInherited), false);
-            return ret;
-        }
-
-        public new static TfTokenVector GetSchemaAttributeNames()
-        {
-            TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdGeomXform_GetSchemaAttributeNames__SWIG_1(), false);
-            return ret;
-        }
-
-        public new static UsdGeomXform Get(UsdStageWeakPtr stage, SdfPath path)
-        {
-            UsdGeomXform ret = new UsdGeomXform(UsdCsPINVOKE.UsdGeomXform_Get(UsdStageWeakPtr.getCPtr(stage), SdfPath.getCPtr(path)), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public static UsdGeomXform Define(UsdStageWeakPtr stage, SdfPath path)
-        {
-            UsdGeomXform ret = new UsdGeomXform(UsdCsPINVOKE.UsdGeomXform_Define(UsdStageWeakPtr.getCPtr(stage), SdfPath.getCPtr(path)), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
+      base.Dispose();
     }
+  }
+
+  public UsdGeomXform(UsdPrim prim) : this(UsdCsPINVOKE.new_UsdGeomXform__SWIG_0(UsdPrim.getCPtr(prim)), true) {
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public UsdGeomXform() : this(UsdCsPINVOKE.new_UsdGeomXform__SWIG_1(), true) {
+  }
+
+  public UsdGeomXform(UsdSchemaBase schemaObj) : this(UsdCsPINVOKE.new_UsdGeomXform__SWIG_2(UsdSchemaBase.getCPtr(schemaObj)), true) {
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public new static TfTokenVector GetSchemaAttributeNames(bool includeInherited) {
+    TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdGeomXform_GetSchemaAttributeNames__SWIG_0(includeInherited), false);
+    return ret;
+  }
+
+  public new static TfTokenVector GetSchemaAttributeNames() {
+    TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdGeomXform_GetSchemaAttributeNames__SWIG_1(), false);
+    return ret;
+  }
+
+  public new static UsdGeomXform Get(UsdStageWeakPtr stage, SdfPath path) {
+    UsdGeomXform ret = new UsdGeomXform(UsdCsPINVOKE.UsdGeomXform_Get(UsdStageWeakPtr.getCPtr(stage), SdfPath.getCPtr(path)), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static UsdGeomXform Define(UsdStageWeakPtr stage, SdfPath path) {
+    UsdGeomXform ret = new UsdGeomXform(UsdCsPINVOKE.UsdGeomXform_Define(UsdStageWeakPtr.getCPtr(stage), SdfPath.getCPtr(path)), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+}
+
 }

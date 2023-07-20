@@ -8,61 +8,53 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class UsdShadeShaderDefUtils : global::System.IDisposable
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        protected bool swigCMemOwn;
+namespace pxr {
 
-        internal UsdShadeShaderDefUtils(global::System.IntPtr cPtr, bool cMemoryOwn)
-        {
-            swigCMemOwn = cMemoryOwn;
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class UsdShadeShaderDefUtils : global::System.IDisposable {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdShadeShaderDefUtils obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal UsdShadeShaderDefUtils(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~UsdShadeShaderDefUtils()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdShadeShaderDefUtils obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public virtual void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_UsdShadeShaderDefUtils(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-            }
-        }
+  ~UsdShadeShaderDefUtils() {
+    Dispose();
+  }
 
-        public static bool SplitShaderIdentifier(TfToken identifier, TfToken familyName, TfToken implementationName, NdrVersion version)
-        {
-            bool ret = UsdCsPINVOKE.UsdShadeShaderDefUtils_SplitShaderIdentifier(TfToken.getCPtr(identifier), TfToken.getCPtr(familyName), TfToken.getCPtr(implementationName), NdrVersion.getCPtr(version));
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
+  public virtual void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_UsdShadeShaderDefUtils(swigCPtr);
         }
-
-        public static NdrNodeDiscoveryResultVector GetNodeDiscoveryResults(UsdShadeShader shaderDef, string sourceUri)
-        {
-            NdrNodeDiscoveryResultVector ret = new NdrNodeDiscoveryResultVector(UsdCsPINVOKE.UsdShadeShaderDefUtils_GetNodeDiscoveryResults(UsdShadeShader.getCPtr(shaderDef), sourceUri), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public UsdShadeShaderDefUtils() : this(UsdCsPINVOKE.new_UsdShadeShaderDefUtils(), true)
-        {
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
     }
+  }
+
+  public static bool SplitShaderIdentifier(TfToken identifier, TfToken familyName, TfToken implementationName, NdrVersion version) {
+    bool ret = UsdCsPINVOKE.UsdShadeShaderDefUtils_SplitShaderIdentifier(TfToken.getCPtr(identifier), TfToken.getCPtr(familyName), TfToken.getCPtr(implementationName), NdrVersion.getCPtr(version));
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static NdrNodeDiscoveryResultVector GetNodeDiscoveryResults(UsdShadeShader shaderDef, string sourceUri) {
+    NdrNodeDiscoveryResultVector ret = new NdrNodeDiscoveryResultVector(UsdCsPINVOKE.UsdShadeShaderDefUtils_GetNodeDiscoveryResults(UsdShadeShader.getCPtr(shaderDef), sourceUri), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public UsdShadeShaderDefUtils() : this(UsdCsPINVOKE.new_UsdShadeShaderDefUtils(), true) {
+  }
+
+}
+
 }

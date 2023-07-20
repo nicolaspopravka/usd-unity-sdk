@@ -8,78 +8,68 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class SdfLayerTree : global::System.IDisposable
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        private bool swigCMemOwnBase;
+namespace pxr {
 
-        internal SdfLayerTree(global::System.IntPtr cPtr, bool cMemoryOwn)
-        {
-            swigCMemOwnBase = cMemoryOwn;
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class SdfLayerTree : global::System.IDisposable {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  private bool swigCMemOwnBase;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SdfLayerTree obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal SdfLayerTree(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwnBase = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~SdfLayerTree()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SdfLayerTree obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public virtual void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwnBase)
-                    {
-                        swigCMemOwnBase = false;
-                        UsdCsPINVOKE.delete_SdfLayerTree(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-            }
-        }
+  ~SdfLayerTree() {
+    Dispose();
+  }
 
-        public static SdfLayerTreeHandle New(SdfLayerHandle layer, SdfLayerTreeHandleVector childTrees, SdfLayerOffset cumulativeOffset)
-        {
-            SdfLayerTreeHandle ret = new SdfLayerTreeHandle(UsdCsPINVOKE.SdfLayerTree_New__SWIG_0(SdfLayerHandle.getCPtr(layer), SdfLayerTreeHandleVector.getCPtr(childTrees), SdfLayerOffset.getCPtr(cumulativeOffset)), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
+  public virtual void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwnBase) {
+          swigCMemOwnBase = false;
+          UsdCsPINVOKE.delete_SdfLayerTree(swigCPtr);
         }
-
-        public static SdfLayerTreeHandle New(SdfLayerHandle layer, SdfLayerTreeHandleVector childTrees)
-        {
-            SdfLayerTreeHandle ret = new SdfLayerTreeHandle(UsdCsPINVOKE.SdfLayerTree_New__SWIG_1(SdfLayerHandle.getCPtr(layer), SdfLayerTreeHandleVector.getCPtr(childTrees)), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public SdfLayerHandle GetLayer()
-        {
-            SdfLayerHandle ret = new SdfLayerHandle(UsdCsPINVOKE.SdfLayerTree_GetLayer(swigCPtr), false);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public SdfLayerOffset GetOffset()
-        {
-            SdfLayerOffset ret = new SdfLayerOffset(UsdCsPINVOKE.SdfLayerTree_GetOffset(swigCPtr), false);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public SdfLayerTreeHandleVector GetChildTrees()
-        {
-            SdfLayerTreeHandleVector ret = new SdfLayerTreeHandleVector(UsdCsPINVOKE.SdfLayerTree_GetChildTrees(swigCPtr), false);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
     }
+  }
+
+  public static SdfLayerTreeHandle New(SdfLayerHandle layer, SdfLayerTreeHandleVector childTrees, SdfLayerOffset cumulativeOffset) {
+    SdfLayerTreeHandle ret = new SdfLayerTreeHandle(UsdCsPINVOKE.SdfLayerTree_New__SWIG_0(SdfLayerHandle.getCPtr(layer), SdfLayerTreeHandleVector.getCPtr(childTrees), SdfLayerOffset.getCPtr(cumulativeOffset)), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static SdfLayerTreeHandle New(SdfLayerHandle layer, SdfLayerTreeHandleVector childTrees) {
+    SdfLayerTreeHandle ret = new SdfLayerTreeHandle(UsdCsPINVOKE.SdfLayerTree_New__SWIG_1(SdfLayerHandle.getCPtr(layer), SdfLayerTreeHandleVector.getCPtr(childTrees)), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public SdfLayerHandle GetLayer() {
+    SdfLayerHandle ret = new SdfLayerHandle(UsdCsPINVOKE.SdfLayerTree_GetLayer(swigCPtr), false);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public SdfLayerOffset GetOffset() {
+    SdfLayerOffset ret = new SdfLayerOffset(UsdCsPINVOKE.SdfLayerTree_GetOffset(swigCPtr), false);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public SdfLayerTreeHandleVector GetChildTrees() {
+    SdfLayerTreeHandleVector ret = new SdfLayerTreeHandleVector(UsdCsPINVOKE.SdfLayerTree_GetChildTrees(swigCPtr), false);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+}
+
 }

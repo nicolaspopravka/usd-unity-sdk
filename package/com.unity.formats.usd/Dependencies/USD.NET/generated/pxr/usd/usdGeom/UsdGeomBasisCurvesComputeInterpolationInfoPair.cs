@@ -8,84 +8,70 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class UsdGeomBasisCurvesComputeInterpolationInfoPair : global::System.IDisposable
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        protected bool swigCMemOwn;
+namespace pxr {
 
-        internal UsdGeomBasisCurvesComputeInterpolationInfoPair(global::System.IntPtr cPtr, bool cMemoryOwn)
-        {
-            swigCMemOwn = cMemoryOwn;
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class UsdGeomBasisCurvesComputeInterpolationInfoPair : global::System.IDisposable {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdGeomBasisCurvesComputeInterpolationInfoPair obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal UsdGeomBasisCurvesComputeInterpolationInfoPair(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~UsdGeomBasisCurvesComputeInterpolationInfoPair()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdGeomBasisCurvesComputeInterpolationInfoPair obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public virtual void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_UsdGeomBasisCurvesComputeInterpolationInfoPair(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-            }
-        }
+  ~UsdGeomBasisCurvesComputeInterpolationInfoPair() {
+    Dispose();
+  }
 
-        public UsdGeomBasisCurvesComputeInterpolationInfoPair() : this(UsdCsPINVOKE.new_UsdGeomBasisCurvesComputeInterpolationInfoPair__SWIG_0(), true)
-        {
+  public virtual void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_UsdGeomBasisCurvesComputeInterpolationInfoPair(swigCPtr);
         }
-
-        public UsdGeomBasisCurvesComputeInterpolationInfoPair(TfToken t, uint u) : this(UsdCsPINVOKE.new_UsdGeomBasisCurvesComputeInterpolationInfoPair__SWIG_1(TfToken.getCPtr(t), u), true)
-        {
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        public UsdGeomBasisCurvesComputeInterpolationInfoPair(UsdGeomBasisCurvesComputeInterpolationInfoPair p) : this(UsdCsPINVOKE.new_UsdGeomBasisCurvesComputeInterpolationInfoPair__SWIG_2(UsdGeomBasisCurvesComputeInterpolationInfoPair.getCPtr(p)), true)
-        {
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        public TfToken first
-        {
-            set
-            {
-                UsdCsPINVOKE.UsdGeomBasisCurvesComputeInterpolationInfoPair_first_set(swigCPtr, TfToken.getCPtr(value));
-            }
-            get
-            {
-                global::System.IntPtr cPtr = UsdCsPINVOKE.UsdGeomBasisCurvesComputeInterpolationInfoPair_first_get(swigCPtr);
-                TfToken ret = (cPtr == global::System.IntPtr.Zero) ? null : new TfToken(cPtr, false);
-                return ret;
-            }
-        }
-
-        public uint second
-        {
-            set
-            {
-                UsdCsPINVOKE.UsdGeomBasisCurvesComputeInterpolationInfoPair_second_set(swigCPtr, value);
-            }
-            get
-            {
-                uint ret = UsdCsPINVOKE.UsdGeomBasisCurvesComputeInterpolationInfoPair_second_get(swigCPtr);
-                return ret;
-            }
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
     }
+  }
+
+  public UsdGeomBasisCurvesComputeInterpolationInfoPair() : this(UsdCsPINVOKE.new_UsdGeomBasisCurvesComputeInterpolationInfoPair__SWIG_0(), true) {
+  }
+
+  public UsdGeomBasisCurvesComputeInterpolationInfoPair(TfToken t, uint u) : this(UsdCsPINVOKE.new_UsdGeomBasisCurvesComputeInterpolationInfoPair__SWIG_1(TfToken.getCPtr(t), u), true) {
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public UsdGeomBasisCurvesComputeInterpolationInfoPair(UsdGeomBasisCurvesComputeInterpolationInfoPair p) : this(UsdCsPINVOKE.new_UsdGeomBasisCurvesComputeInterpolationInfoPair__SWIG_2(UsdGeomBasisCurvesComputeInterpolationInfoPair.getCPtr(p)), true) {
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public TfToken first {
+    set {
+      UsdCsPINVOKE.UsdGeomBasisCurvesComputeInterpolationInfoPair_first_set(swigCPtr, TfToken.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = UsdCsPINVOKE.UsdGeomBasisCurvesComputeInterpolationInfoPair_first_get(swigCPtr);
+      TfToken ret = (cPtr == global::System.IntPtr.Zero) ? null : new TfToken(cPtr, false);
+      return ret;
+    } 
+  }
+
+  public uint second {
+    set {
+      UsdCsPINVOKE.UsdGeomBasisCurvesComputeInterpolationInfoPair_second_set(swigCPtr, value);
+    } 
+    get {
+      uint ret = UsdCsPINVOKE.UsdGeomBasisCurvesComputeInterpolationInfoPair_second_get(swigCPtr);
+      return ret;
+    } 
+  }
+
+}
+
 }

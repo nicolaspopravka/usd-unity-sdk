@@ -8,85 +8,74 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class UsdPrimSubtreeRange :
-        global::System.Collections.IEnumerable,
-        global::System.Collections.Generic.IEnumerable<UsdPrim>
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        protected bool swigCMemOwn;
+namespace pxr {
 
-        internal UsdPrimSubtreeRange(global::System.IntPtr cPtr, bool cMemoryOwn)
-        {
-            swigCMemOwn = cMemoryOwn;
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class UsdPrimSubtreeRange : 
+    global::System.Collections.IEnumerable,
+    global::System.Collections.Generic.IEnumerable<UsdPrim>
+ {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdPrimSubtreeRange obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal UsdPrimSubtreeRange(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~UsdPrimSubtreeRange()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdPrimSubtreeRange obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public virtual void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_UsdPrimSubtreeRange(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-            }
-        }
+  ~UsdPrimSubtreeRange() {
+    Dispose();
+  }
 
-        // Returning an externally defined class is ugly, but dramatically simplifies the bindings while
-        // allowing the use of C#'s foreach mechanism.
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return new USD.NET.SubtreeIterator(this);
+  public virtual void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_UsdPrimSubtreeRange(swigCPtr);
         }
-
-        public System.Collections.Generic.IEnumerator<UsdPrim> GetEnumerator()
-        {
-            return new USD.NET.SubtreeIterator(this);
-        }
-
-        public UsdPrimSubtreeIterator begin()
-        {
-            UsdPrimSubtreeIterator ret = new UsdPrimSubtreeIterator(UsdCsPINVOKE.UsdPrimSubtreeRange_begin(swigCPtr), true);
-            return ret;
-        }
-
-        public UsdPrimSubtreeIterator end()
-        {
-            UsdPrimSubtreeIterator ret = new UsdPrimSubtreeIterator(UsdCsPINVOKE.UsdPrimSubtreeRange_end(swigCPtr), true);
-            return ret;
-        }
-
-        public UsdPrimSubtreeIterator GetStart()
-        {
-            UsdPrimSubtreeIterator ret = new UsdPrimSubtreeIterator(UsdCsPINVOKE.UsdPrimSubtreeRange_GetStart(swigCPtr), true);
-            return ret;
-        }
-
-        public UsdPrimSubtreeIterator GetEnd()
-        {
-            UsdPrimSubtreeIterator ret = new UsdPrimSubtreeIterator(UsdCsPINVOKE.UsdPrimSubtreeRange_GetEnd(swigCPtr), true);
-            return ret;
-        }
-
-        public UsdPrimSubtreeRange() : this(UsdCsPINVOKE.new_UsdPrimSubtreeRange(), true)
-        {
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
     }
+  }
+
+  // Returning an externally defined class is ugly, but dramatically simplifies the bindings while
+  // allowing the use of C#'s foreach mechanism.
+  System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
+    return new USD.NET.SubtreeIterator(this);
+  }
+
+  public System.Collections.Generic.IEnumerator<UsdPrim> GetEnumerator() {
+    return new USD.NET.SubtreeIterator(this);
+  }
+
+  public UsdPrimSubtreeIterator begin() {
+    UsdPrimSubtreeIterator ret = new UsdPrimSubtreeIterator(UsdCsPINVOKE.UsdPrimSubtreeRange_begin(swigCPtr), true);
+    return ret;
+  }
+
+  public UsdPrimSubtreeIterator end() {
+    UsdPrimSubtreeIterator ret = new UsdPrimSubtreeIterator(UsdCsPINVOKE.UsdPrimSubtreeRange_end(swigCPtr), true);
+    return ret;
+  }
+
+  public UsdPrimSubtreeIterator GetStart() {
+    UsdPrimSubtreeIterator ret = new UsdPrimSubtreeIterator(UsdCsPINVOKE.UsdPrimSubtreeRange_GetStart(swigCPtr), true);
+    return ret;
+  }
+
+  public UsdPrimSubtreeIterator GetEnd() {
+    UsdPrimSubtreeIterator ret = new UsdPrimSubtreeIterator(UsdCsPINVOKE.UsdPrimSubtreeRange_GetEnd(swigCPtr), true);
+    return ret;
+  }
+
+  public UsdPrimSubtreeRange() : this(UsdCsPINVOKE.new_UsdPrimSubtreeRange(), true) {
+  }
+
+}
+
 }

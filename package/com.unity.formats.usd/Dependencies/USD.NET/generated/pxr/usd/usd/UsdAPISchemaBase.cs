@@ -8,54 +8,47 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class UsdAPISchemaBase : UsdSchemaBase
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+namespace pxr {
 
-        internal UsdAPISchemaBase(global::System.IntPtr cPtr, bool cMemoryOwn) : base(UsdCsPINVOKE.UsdAPISchemaBase_SWIGUpcast(cPtr), cMemoryOwn)
-        {
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class UsdAPISchemaBase : UsdSchemaBase {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdAPISchemaBase obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal UsdAPISchemaBase(global::System.IntPtr cPtr, bool cMemoryOwn) : base(UsdCsPINVOKE.UsdAPISchemaBase_SWIGUpcast(cPtr), cMemoryOwn) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~UsdAPISchemaBase()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdAPISchemaBase obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public override void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_UsdAPISchemaBase(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-                base.Dispose();
-            }
-        }
+  ~UsdAPISchemaBase() {
+    Dispose();
+  }
 
-        public new static TfTokenVector GetSchemaAttributeNames(bool includeInherited)
-        {
-            TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdAPISchemaBase_GetSchemaAttributeNames__SWIG_0(includeInherited), false);
-            return ret;
+  public override void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_UsdAPISchemaBase(swigCPtr);
         }
-
-        public new static TfTokenVector GetSchemaAttributeNames()
-        {
-            TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdAPISchemaBase_GetSchemaAttributeNames__SWIG_1(), false);
-            return ret;
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
+      base.Dispose();
     }
+  }
+
+  public new static TfTokenVector GetSchemaAttributeNames(bool includeInherited) {
+    TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdAPISchemaBase_GetSchemaAttributeNames__SWIG_0(includeInherited), false);
+    return ret;
+  }
+
+  public new static TfTokenVector GetSchemaAttributeNames() {
+    TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdAPISchemaBase_GetSchemaAttributeNames__SWIG_1(), false);
+    return ret;
+  }
+
+}
+
 }

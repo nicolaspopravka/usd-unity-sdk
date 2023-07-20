@@ -8,81 +8,70 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class GfHalf : global::System.IDisposable
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        protected bool swigCMemOwn;
+namespace pxr {
 
-        internal GfHalf(global::System.IntPtr cPtr, bool cMemoryOwn)
-        {
-            swigCMemOwn = cMemoryOwn;
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class GfHalf : global::System.IDisposable {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(GfHalf obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal GfHalf(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~GfHalf()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(GfHalf obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public virtual void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_GfHalf(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-            }
-        }
+  ~GfHalf() {
+    Dispose();
+  }
 
-        public static bool Equals(GfHalf lhs, GfHalf rhs)
-        {
-            bool ret = UsdCsPINVOKE.GfHalf_Equals(GfHalf.getCPtr(lhs), GfHalf.getCPtr(rhs));
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
+  public virtual void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_GfHalf(swigCPtr);
         }
-
-        override public int GetHashCode()
-        {
-            int ret = UsdCsPINVOKE.GfHalf_GetHashCode(swigCPtr);
-            return ret;
-        }
-
-        public static bool operator==(GfHalf lhs, GfHalf rhs)
-        {
-            // The Swig binding glue will re-enter this operator comparing to null, so
-            // that case must be handled explicitly to avoid an infinite loop. This is still
-            // not great, since it crosses the C#/C++ barrier twice. A better approache might
-            // be to return a simple value from C++ that can be compared in C#.
-            bool lnull = lhs as object == null;
-            bool rnull = rhs as object == null;
-            return (lnull == rnull) && ((lnull && rnull) || GfHalf.Equals(lhs, rhs));
-        }
-
-        public static bool operator!=(GfHalf lhs, GfHalf rhs)
-        {
-            return !(lhs == rhs);
-        }
-
-        override public bool Equals(object rhs)
-        {
-            return GfHalf.Equals(this, rhs as GfHalf);
-        }
-
-        public GfHalf() : this(UsdCsPINVOKE.new_GfHalf(), true)
-        {
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
     }
+  }
+
+  public static bool Equals(GfHalf lhs, GfHalf rhs) {
+    bool ret = UsdCsPINVOKE.GfHalf_Equals(GfHalf.getCPtr(lhs), GfHalf.getCPtr(rhs));
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  override public int GetHashCode() {
+    int ret = UsdCsPINVOKE.GfHalf_GetHashCode(swigCPtr);
+    return ret;
+  }
+
+    public static bool operator==(GfHalf lhs, GfHalf rhs){
+      // The Swig binding glue will re-enter this operator comparing to null, so 
+      // that case must be handled explicitly to avoid an infinite loop. This is still
+      // not great, since it crosses the C#/C++ barrier twice. A better approache might
+      // be to return a simple value from C++ that can be compared in C#.
+      bool lnull = lhs as object == null;
+      bool rnull = rhs as object == null;
+      return (lnull == rnull) && ((lnull && rnull) || GfHalf.Equals(lhs, rhs));
+    }
+
+    public static bool operator !=(GfHalf lhs, GfHalf rhs) {
+        return !(lhs == rhs);
+    }
+
+    override public bool Equals(object rhs) {
+      return GfHalf.Equals(this, rhs as GfHalf);
+    }
+  
+  public GfHalf() : this(UsdCsPINVOKE.new_GfHalf(), true) {
+  }
+
+}
+
 }

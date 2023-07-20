@@ -8,51 +8,44 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class Usd_PrimFlagsDisjunction : Usd_PrimFlagsPredicate
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+namespace pxr {
 
-        internal Usd_PrimFlagsDisjunction(global::System.IntPtr cPtr, bool cMemoryOwn) : base(UsdCsPINVOKE.Usd_PrimFlagsDisjunction_SWIGUpcast(cPtr), cMemoryOwn)
-        {
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class Usd_PrimFlagsDisjunction : Usd_PrimFlagsPredicate {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(Usd_PrimFlagsDisjunction obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal Usd_PrimFlagsDisjunction(global::System.IntPtr cPtr, bool cMemoryOwn) : base(UsdCsPINVOKE.Usd_PrimFlagsDisjunction_SWIGUpcast(cPtr), cMemoryOwn) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~Usd_PrimFlagsDisjunction()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(Usd_PrimFlagsDisjunction obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public override void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_Usd_PrimFlagsDisjunction(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-                base.Dispose();
-            }
-        }
+  ~Usd_PrimFlagsDisjunction() {
+    Dispose();
+  }
 
-        public Usd_PrimFlagsDisjunction() : this(UsdCsPINVOKE.new_Usd_PrimFlagsDisjunction__SWIG_0(), true)
-        {
+  public override void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_Usd_PrimFlagsDisjunction(swigCPtr);
         }
-
-        public Usd_PrimFlagsDisjunction(Usd_Term term) : this(UsdCsPINVOKE.new_Usd_PrimFlagsDisjunction__SWIG_1(Usd_Term.getCPtr(term)), true)
-        {
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
+      base.Dispose();
     }
+  }
+
+  public Usd_PrimFlagsDisjunction() : this(UsdCsPINVOKE.new_Usd_PrimFlagsDisjunction__SWIG_0(), true) {
+  }
+
+  public Usd_PrimFlagsDisjunction(Usd_Term term) : this(UsdCsPINVOKE.new_Usd_PrimFlagsDisjunction__SWIG_1(Usd_Term.getCPtr(term)), true) {
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+}
+
 }

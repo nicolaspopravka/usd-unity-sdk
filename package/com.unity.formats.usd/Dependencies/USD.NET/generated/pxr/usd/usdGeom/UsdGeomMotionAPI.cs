@@ -8,121 +8,103 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class UsdGeomMotionAPI : UsdAPISchemaBase
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+namespace pxr {
 
-        internal UsdGeomMotionAPI(global::System.IntPtr cPtr, bool cMemoryOwn) : base(UsdCsPINVOKE.UsdGeomMotionAPI_SWIGUpcast(cPtr), cMemoryOwn)
-        {
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class UsdGeomMotionAPI : UsdAPISchemaBase {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdGeomMotionAPI obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal UsdGeomMotionAPI(global::System.IntPtr cPtr, bool cMemoryOwn) : base(UsdCsPINVOKE.UsdGeomMotionAPI_SWIGUpcast(cPtr), cMemoryOwn) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~UsdGeomMotionAPI()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(UsdGeomMotionAPI obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public override void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_UsdGeomMotionAPI(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-                base.Dispose();
-            }
-        }
+  ~UsdGeomMotionAPI() {
+    Dispose();
+  }
 
-        public UsdGeomMotionAPI(UsdPrim prim) : this(UsdCsPINVOKE.new_UsdGeomMotionAPI__SWIG_0(UsdPrim.getCPtr(prim)), true)
-        {
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  public override void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_UsdGeomMotionAPI(swigCPtr);
         }
-
-        public UsdGeomMotionAPI() : this(UsdCsPINVOKE.new_UsdGeomMotionAPI__SWIG_1(), true)
-        {
-        }
-
-        public UsdGeomMotionAPI(UsdSchemaBase schemaObj) : this(UsdCsPINVOKE.new_UsdGeomMotionAPI__SWIG_2(UsdSchemaBase.getCPtr(schemaObj)), true)
-        {
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        public new static TfTokenVector GetSchemaAttributeNames(bool includeInherited)
-        {
-            TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdGeomMotionAPI_GetSchemaAttributeNames__SWIG_0(includeInherited), false);
-            return ret;
-        }
-
-        public new static TfTokenVector GetSchemaAttributeNames()
-        {
-            TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdGeomMotionAPI_GetSchemaAttributeNames__SWIG_1(), false);
-            return ret;
-        }
-
-        public static UsdGeomMotionAPI Get(UsdStageWeakPtr stage, SdfPath path)
-        {
-            UsdGeomMotionAPI ret = new UsdGeomMotionAPI(UsdCsPINVOKE.UsdGeomMotionAPI_Get(UsdStageWeakPtr.getCPtr(stage), SdfPath.getCPtr(path)), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public static UsdGeomMotionAPI Apply(UsdPrim prim)
-        {
-            UsdGeomMotionAPI ret = new UsdGeomMotionAPI(UsdCsPINVOKE.UsdGeomMotionAPI_Apply(UsdPrim.getCPtr(prim)), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public UsdAttribute GetVelocityScaleAttr()
-        {
-            UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdGeomMotionAPI_GetVelocityScaleAttr(swigCPtr), true);
-            return ret;
-        }
-
-        public UsdAttribute CreateVelocityScaleAttr(VtValue defaultValue, bool writeSparsely)
-        {
-            UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdGeomMotionAPI_CreateVelocityScaleAttr__SWIG_0(swigCPtr, VtValue.getCPtr(defaultValue), writeSparsely), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public UsdAttribute CreateVelocityScaleAttr(VtValue defaultValue)
-        {
-            UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdGeomMotionAPI_CreateVelocityScaleAttr__SWIG_1(swigCPtr, VtValue.getCPtr(defaultValue)), true);
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public UsdAttribute CreateVelocityScaleAttr()
-        {
-            UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdGeomMotionAPI_CreateVelocityScaleAttr__SWIG_2(swigCPtr), true);
-            return ret;
-        }
-
-        public float ComputeVelocityScale(UsdTimeCode time)
-        {
-            float ret = UsdCsPINVOKE.UsdGeomMotionAPI_ComputeVelocityScale__SWIG_0(swigCPtr, UsdTimeCode.getCPtr(time));
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        public float ComputeVelocityScale()
-        {
-            float ret = UsdCsPINVOKE.UsdGeomMotionAPI_ComputeVelocityScale__SWIG_1(swigCPtr);
-            return ret;
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
+      base.Dispose();
     }
+  }
+
+  public UsdGeomMotionAPI(UsdPrim prim) : this(UsdCsPINVOKE.new_UsdGeomMotionAPI__SWIG_0(UsdPrim.getCPtr(prim)), true) {
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public UsdGeomMotionAPI() : this(UsdCsPINVOKE.new_UsdGeomMotionAPI__SWIG_1(), true) {
+  }
+
+  public UsdGeomMotionAPI(UsdSchemaBase schemaObj) : this(UsdCsPINVOKE.new_UsdGeomMotionAPI__SWIG_2(UsdSchemaBase.getCPtr(schemaObj)), true) {
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public new static TfTokenVector GetSchemaAttributeNames(bool includeInherited) {
+    TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdGeomMotionAPI_GetSchemaAttributeNames__SWIG_0(includeInherited), false);
+    return ret;
+  }
+
+  public new static TfTokenVector GetSchemaAttributeNames() {
+    TfTokenVector ret = new TfTokenVector(UsdCsPINVOKE.UsdGeomMotionAPI_GetSchemaAttributeNames__SWIG_1(), false);
+    return ret;
+  }
+
+  public static UsdGeomMotionAPI Get(UsdStageWeakPtr stage, SdfPath path) {
+    UsdGeomMotionAPI ret = new UsdGeomMotionAPI(UsdCsPINVOKE.UsdGeomMotionAPI_Get(UsdStageWeakPtr.getCPtr(stage), SdfPath.getCPtr(path)), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static UsdGeomMotionAPI Apply(UsdPrim prim) {
+    UsdGeomMotionAPI ret = new UsdGeomMotionAPI(UsdCsPINVOKE.UsdGeomMotionAPI_Apply(UsdPrim.getCPtr(prim)), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public UsdAttribute GetVelocityScaleAttr() {
+    UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdGeomMotionAPI_GetVelocityScaleAttr(swigCPtr), true);
+    return ret;
+  }
+
+  public UsdAttribute CreateVelocityScaleAttr(VtValue defaultValue, bool writeSparsely) {
+    UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdGeomMotionAPI_CreateVelocityScaleAttr__SWIG_0(swigCPtr, VtValue.getCPtr(defaultValue), writeSparsely), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public UsdAttribute CreateVelocityScaleAttr(VtValue defaultValue) {
+    UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdGeomMotionAPI_CreateVelocityScaleAttr__SWIG_1(swigCPtr, VtValue.getCPtr(defaultValue)), true);
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public UsdAttribute CreateVelocityScaleAttr() {
+    UsdAttribute ret = new UsdAttribute(UsdCsPINVOKE.UsdGeomMotionAPI_CreateVelocityScaleAttr__SWIG_2(swigCPtr), true);
+    return ret;
+  }
+
+  public float ComputeVelocityScale(UsdTimeCode time) {
+    float ret = UsdCsPINVOKE.UsdGeomMotionAPI_ComputeVelocityScale__SWIG_0(swigCPtr, UsdTimeCode.getCPtr(time));
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public float ComputeVelocityScale() {
+    float ret = UsdCsPINVOKE.UsdGeomMotionAPI_ComputeVelocityScale__SWIG_1(swigCPtr);
+    return ret;
+  }
+
+}
+
 }

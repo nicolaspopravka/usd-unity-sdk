@@ -8,60 +8,51 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class TfStreamFloat : global::System.IDisposable
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        protected bool swigCMemOwn;
+namespace pxr {
 
-        internal TfStreamFloat(global::System.IntPtr cPtr, bool cMemoryOwn)
-        {
-            swigCMemOwn = cMemoryOwn;
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class TfStreamFloat : global::System.IDisposable {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(TfStreamFloat obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal TfStreamFloat(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~TfStreamFloat()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(TfStreamFloat obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public virtual void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_TfStreamFloat(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-            }
-        }
+  ~TfStreamFloat() {
+    Dispose();
+  }
 
-        public TfStreamFloat(float f) : this(UsdCsPINVOKE.new_TfStreamFloat(f), true)
-        {
+  public virtual void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_TfStreamFloat(swigCPtr);
         }
-
-        public float value
-        {
-            set
-            {
-                UsdCsPINVOKE.TfStreamFloat_value_set(swigCPtr, value);
-            }
-            get
-            {
-                float ret = UsdCsPINVOKE.TfStreamFloat_value_get(swigCPtr);
-                return ret;
-            }
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
     }
+  }
+
+  public TfStreamFloat(float f) : this(UsdCsPINVOKE.new_TfStreamFloat(f), true) {
+  }
+
+  public float value {
+    set {
+      UsdCsPINVOKE.TfStreamFloat_value_set(swigCPtr, value);
+    } 
+    get {
+      float ret = UsdCsPINVOKE.TfStreamFloat_value_get(swigCPtr);
+      return ret;
+    } 
+  }
+
+}
+
 }

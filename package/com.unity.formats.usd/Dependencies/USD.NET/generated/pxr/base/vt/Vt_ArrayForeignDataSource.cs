@@ -8,55 +8,47 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class Vt_ArrayForeignDataSource : global::System.IDisposable
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        protected bool swigCMemOwn;
+namespace pxr {
 
-        internal Vt_ArrayForeignDataSource(global::System.IntPtr cPtr, bool cMemoryOwn)
-        {
-            swigCMemOwn = cMemoryOwn;
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class Vt_ArrayForeignDataSource : global::System.IDisposable {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(Vt_ArrayForeignDataSource obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal Vt_ArrayForeignDataSource(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~Vt_ArrayForeignDataSource()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(Vt_ArrayForeignDataSource obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public virtual void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_Vt_ArrayForeignDataSource(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-            }
-        }
+  ~Vt_ArrayForeignDataSource() {
+    Dispose();
+  }
 
-        public Vt_ArrayForeignDataSource(SWIGTYPE_p_f_p_Vt_ArrayForeignDataSource__void detachedFn, uint initRefCount) : this(UsdCsPINVOKE.new_Vt_ArrayForeignDataSource__SWIG_0(SWIGTYPE_p_f_p_Vt_ArrayForeignDataSource__void.getCPtr(detachedFn), initRefCount), true)
-        {
+  public virtual void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_Vt_ArrayForeignDataSource(swigCPtr);
         }
-
-        public Vt_ArrayForeignDataSource(SWIGTYPE_p_f_p_Vt_ArrayForeignDataSource__void detachedFn) : this(UsdCsPINVOKE.new_Vt_ArrayForeignDataSource__SWIG_1(SWIGTYPE_p_f_p_Vt_ArrayForeignDataSource__void.getCPtr(detachedFn)), true)
-        {
-        }
-
-        public Vt_ArrayForeignDataSource() : this(UsdCsPINVOKE.new_Vt_ArrayForeignDataSource__SWIG_2(), true)
-        {
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
     }
+  }
+
+  public Vt_ArrayForeignDataSource(SWIGTYPE_p_f_p_Vt_ArrayForeignDataSource__void detachedFn, uint initRefCount) : this(UsdCsPINVOKE.new_Vt_ArrayForeignDataSource__SWIG_0(SWIGTYPE_p_f_p_Vt_ArrayForeignDataSource__void.getCPtr(detachedFn), initRefCount), true) {
+  }
+
+  public Vt_ArrayForeignDataSource(SWIGTYPE_p_f_p_Vt_ArrayForeignDataSource__void detachedFn) : this(UsdCsPINVOKE.new_Vt_ArrayForeignDataSource__SWIG_1(SWIGTYPE_p_f_p_Vt_ArrayForeignDataSource__void.getCPtr(detachedFn)), true) {
+  }
+
+  public Vt_ArrayForeignDataSource() : this(UsdCsPINVOKE.new_Vt_ArrayForeignDataSource__SWIG_2(), true) {
+  }
+
+}
+
 }

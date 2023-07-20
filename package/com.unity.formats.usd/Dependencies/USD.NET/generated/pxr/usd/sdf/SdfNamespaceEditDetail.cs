@@ -8,101 +8,84 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace pxr
-{
-    public class SdfNamespaceEditDetail : global::System.IDisposable
-    {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        protected bool swigCMemOwn;
+namespace pxr {
 
-        internal SdfNamespaceEditDetail(global::System.IntPtr cPtr, bool cMemoryOwn)
-        {
-            swigCMemOwn = cMemoryOwn;
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+public class SdfNamespaceEditDetail : global::System.IDisposable {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SdfNamespaceEditDetail obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+  internal SdfNamespaceEditDetail(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
 
-        ~SdfNamespaceEditDetail()
-        {
-            Dispose();
-        }
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SdfNamespaceEditDetail obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 
-        public virtual void Dispose()
-        {
-            lock (this) {
-                if (swigCPtr.Handle != global::System.IntPtr.Zero)
-                {
-                    if (swigCMemOwn)
-                    {
-                        swigCMemOwn = false;
-                        UsdCsPINVOKE.delete_SdfNamespaceEditDetail(swigCPtr);
-                    }
-                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-                }
-                global::System.GC.SuppressFinalize(this);
-            }
-        }
+  ~SdfNamespaceEditDetail() {
+    Dispose();
+  }
 
-        public SdfNamespaceEditDetail() : this(UsdCsPINVOKE.new_SdfNamespaceEditDetail__SWIG_0(), true)
-        {
+  public virtual void Dispose() {
+    lock(this) {
+      if (swigCPtr.Handle != global::System.IntPtr.Zero) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          UsdCsPINVOKE.delete_SdfNamespaceEditDetail(swigCPtr);
         }
-
-        public SdfNamespaceEditDetail(SdfNamespaceEditDetail.Result arg0, SdfNamespaceEdit edit, string reason) : this(UsdCsPINVOKE.new_SdfNamespaceEditDetail__SWIG_1((int)arg0, SdfNamespaceEdit.getCPtr(edit), reason), true)
-        {
-            if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        public SdfNamespaceEditDetail.Result result
-        {
-            set
-            {
-                UsdCsPINVOKE.SdfNamespaceEditDetail_result_set(swigCPtr, (int)value);
-            }
-            get
-            {
-                SdfNamespaceEditDetail.Result ret = (SdfNamespaceEditDetail.Result)UsdCsPINVOKE.SdfNamespaceEditDetail_result_get(swigCPtr);
-                return ret;
-            }
-        }
-
-        public SdfNamespaceEdit edit
-        {
-            set
-            {
-                UsdCsPINVOKE.SdfNamespaceEditDetail_edit_set(swigCPtr, SdfNamespaceEdit.getCPtr(value));
-            }
-            get
-            {
-                global::System.IntPtr cPtr = UsdCsPINVOKE.SdfNamespaceEditDetail_edit_get(swigCPtr);
-                SdfNamespaceEdit ret = (cPtr == global::System.IntPtr.Zero) ? null : new SdfNamespaceEdit(cPtr, false);
-                return ret;
-            }
-        }
-
-        public string reason
-        {
-            set
-            {
-                UsdCsPINVOKE.SdfNamespaceEditDetail_reason_set(swigCPtr, value);
-                if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-            }
-            get
-            {
-                string ret = UsdCsPINVOKE.SdfNamespaceEditDetail_reason_get(swigCPtr);
-                if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
-                return ret;
-            }
-        }
-
-        public enum Result
-        {
-            Error,
-            Unbatched,
-            Okay
-        }
+        swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+      }
+      global::System.GC.SuppressFinalize(this);
     }
+  }
+
+  public SdfNamespaceEditDetail() : this(UsdCsPINVOKE.new_SdfNamespaceEditDetail__SWIG_0(), true) {
+  }
+
+  public SdfNamespaceEditDetail(SdfNamespaceEditDetail.Result arg0, SdfNamespaceEdit edit, string reason) : this(UsdCsPINVOKE.new_SdfNamespaceEditDetail__SWIG_1((int)arg0, SdfNamespaceEdit.getCPtr(edit), reason), true) {
+    if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public SdfNamespaceEditDetail.Result result {
+    set {
+      UsdCsPINVOKE.SdfNamespaceEditDetail_result_set(swigCPtr, (int)value);
+    } 
+    get {
+      SdfNamespaceEditDetail.Result ret = (SdfNamespaceEditDetail.Result)UsdCsPINVOKE.SdfNamespaceEditDetail_result_get(swigCPtr);
+      return ret;
+    } 
+  }
+
+  public SdfNamespaceEdit edit {
+    set {
+      UsdCsPINVOKE.SdfNamespaceEditDetail_edit_set(swigCPtr, SdfNamespaceEdit.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = UsdCsPINVOKE.SdfNamespaceEditDetail_edit_get(swigCPtr);
+      SdfNamespaceEdit ret = (cPtr == global::System.IntPtr.Zero) ? null : new SdfNamespaceEdit(cPtr, false);
+      return ret;
+    } 
+  }
+
+  public string reason {
+    set {
+      UsdCsPINVOKE.SdfNamespaceEditDetail_reason_set(swigCPtr, value);
+      if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+    } 
+    get {
+      string ret = UsdCsPINVOKE.SdfNamespaceEditDetail_reason_get(swigCPtr);
+      if (UsdCsPINVOKE.SWIGPendingException.Pending) throw UsdCsPINVOKE.SWIGPendingException.Retrieve();
+      return ret;
+    } 
+  }
+
+  public enum Result {
+    Error,
+    Unbatched,
+    Okay
+  }
+
+}
+
 }
