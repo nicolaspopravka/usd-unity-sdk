@@ -287,6 +287,10 @@ namespace Unity.Formats.USD
             {
                 smr.sharedMesh = new Mesh { name = UniqueMeshName(go.name) };
             }
+            else
+            {
+                smr.sharedMesh.ClearBlendShapes();
+            }
 
             // We only check if a mesh is dynamic when scene.IsPopulatingAccessMask is True. It only happens when a playable is
             // created, potentially way after mesh creation.
