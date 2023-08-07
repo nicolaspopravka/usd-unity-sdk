@@ -16,6 +16,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 using USD.NET;
 using USD.NET.Unity;
@@ -456,7 +457,7 @@ namespace Unity.Formats.USD
                 return;
             }
 
-            Component.DestroyImmediate(comp);
+            Component.DestroyImmediate(comp, true);
         }
 
         /// <summary>
@@ -475,6 +476,7 @@ namespace Unity.Formats.USD
         /// </summary>
         public void RemoveAllUsdComponents()
         {
+            UnityEditor.Undo.RegisterFullObjectHierarchyUndo(this, "Clear USD");
             foreach (var src in GetComponentsInChildren<UsdPrimSource>(includeInactive: true))
             {
                 if (src)
@@ -496,6 +498,7 @@ namespace Unity.Formats.USD
         /// </summary>
         public void DestroyAllImportedObjects()
         {
+            UnityEditor.Undo.RegisterFullObjectHierarchyUndo(this, "Delete USD objects");
             foreach (var src in GetComponentsInChildren<UsdPrimSource>(includeInactive: true))
             {
                 // Remove the object if it is valid, but never remove the UsdAsset root GameObject, which
@@ -503,7 +506,7 @@ namespace Unity.Formats.USD
                 // stubs of USD Assets can be left in the scene in the scene and imported only as needed.
                 if (src && src.gameObject != this.gameObject)
                 {
-                    GameObject.DestroyImmediate(src.gameObject);
+                    GameObject.DestroyImmediate(src.gameObject, true);
                 }
             }
         }
