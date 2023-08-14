@@ -546,11 +546,14 @@ namespace Unity.Formats.USD
                     DestroyAllImportedObjects();
                 }
 
+                if (m_lastScene != null)
+                {
                 pxr.UsdStageLoadRules.Rule activeLoadRule = m_lastScene.Stage.GetLoadRules().GetEffectiveRuleForPath(new pxr.SdfPath("/"));
                 if ((activeLoadRule == pxr.UsdStageLoadRules.Rule.AllRule && options.payloadPolicy == PayloadPolicy.DontLoadPayloads)
                     || (activeLoadRule == pxr.UsdStageLoadRules.Rule.NoneRule && options.payloadPolicy == PayloadPolicy.LoadAll))
                 {
                     ClearLastData();
+                }
                 }
                 SceneImporter.ImportUsd(root, GetScene(), new PrimMap(), options);
 
